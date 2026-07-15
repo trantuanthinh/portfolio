@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trần Tuấn Thịnh | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="porfolio.css" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-info">
+                <h1>Trần Tuấn Thịnh</h1>
+                <span class="job-title">Full-stack Software Engineer</span>
+                <div class="contact-grid">
+                    <span class="label">Phone</span>
+                    <span class="value"><a href="tel:0395279915">0395 279 915</a></span>
+
+                    <span class="label">Email</span>
+                    <span class="value"><a
+                            href="mailto:thinh.tran.051102@gmail.com">thinh.tran.051102@gmail.com</a></span>
+
+                    <span class="label">GitHub</span>
+                    <span class="value"><a href="https://github.com/trantuanthinh"
+                            target="_blank">github.com/trantuanthinh</a></span>
+
+                    <span class="label">LinkedIn</span>
+                    <span class="value"><a href="https://linkedin.com/in/thịnh-tuấn-trần-27893827a/"
+                            target="_blank">linkedin.com/in/thịnh-tuấn-trần-27893827a</a></span>
+                </div>
+            </div>
+        </header>
+
+        <section class="skills-grid">
+            <!-- Frontend -->
+            <div class="skill-card">
+                <h4>Frontend</h4>
+                <ul class="skill-list">
+                    <li>Next.js, Angular</li>
+                    <li>NgRx, Redux Toolkit, RxJS</li>
+                    <li>NextUI, Angular Material</li>
+                    <li>Axios, Jodit Editor</li>
+                </ul>
+            </div>
+
+            <!-- Backend & Database -->
+            <div class="skill-card">
+                <h4>Backend & Database</h4>
+                <ul class="skill-list">
+                    <li>C#, ASP.NET Core</li>
+                    <li>PostgreSQL, MySQL</li>
+                    <li>Quartz.NET, SignalR</li>
+                </ul>
+            </div>
+
+            <!-- DevOps & Tools -->
+            <div class="skill-card">
+                <h4>DevOps & Tools</h4>
+                <ul class="skill-list">
+                    <li>Docker, Nginx</li>
+                    <li>Postman, Swagger</li>
+                    <li>WinSCP, Puppeteer Sharp</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="card">
+                <h3>1. Setup: Nền tảng Giáo dục & CMS Marketing</h3>
+                <p>
+                    <strong>Vấn đề:</strong> Cần một hệ thống linh hoạt cho phép người dùng đăng bài viết và quản lý lộ
+                    trình marketing tự động.
+                </p>
+                <span class="section-label">Giải pháp & Tính năng:</span>
+                <ul>
+                    <li>Tích hợp <strong>Jodit Editor</strong> cho phép người dùng biên tập bài viết.</li>
+                    <li>
+                        <strong>Hierarchical Media Storage:</strong> Cấu trúc lưu trữ media file theo folder phân cấp,
+                        tối ưu hóa truy xuất.
+                    </li>
+                    <li>
+                        <strong>Automated Publishing:</strong> Sử dụng <strong>Quartz.NET Cron Jobs</strong> để tự động
+                        hóa quy trình xuất bản nội dung.
+                    </li>
+                    <li>
+                        <strong>QR-based Referral Tracking:</strong> Hệ thống truy xuất người giới thiệu của khách hàng
+                        chính xác thông qua QR code.
+                    </li>
+                </ul>
+                <p>
+                    <strong>Tech Stack:</strong> Next.js, ASP.NET Core, EF Core, PostgreSQL (JSONB), Docker, Nginx,
+                    Quartz.NET, Jodit Editor, NextUI.
+                </p>
+                <div class="iframe-container"><iframe src="https://setup.edu.vn"></iframe></div>
+                <a href="https://setup.edu.vn" target="_blank" class="link-out">Xem trang Setup →</a>
+            </div>
+
+            <div class="card">
+                <h3>2. Myrtus Villa: Hệ thống Quản trị phòng</h3>
+                <p>
+                    <strong>Vấn đề:</strong> Quy trình đặt phòng thủ công dễ sai sót trong tính toán giá mùa lễ và quản
+                    lý dọn phòng.
+                </p>
+                <span class="section-label">Giải pháp & Tính năng:</span>
+                <ul>
+                    <li>
+                        <strong>Hybrid Pricing Engine:</strong> Tự động điều chỉnh giá theo ngày lễ (lịch Âm/Dương tùy
+                        chỉnh).
+                    </li>
+                    <li>
+                        <strong>Automated Housekeeping:</strong> Hệ thống tự động thông báo yêu cầu dọn phòng ngay khi
+                        khách check-out.
+                    </li>
+                    <li>
+                        <strong>Booking Management:</strong> Giao diện quản lý lịch đặt phòng trực quan, tránh chồng
+                        chéo.
+                    </li>
+                </ul>
+                <p><strong>Tech Stack:</strong> Next.js, ASP.NET Core, PostgreSQL, Quartz.NET, Nginx, SSL.</p>
+                <div class="iframe-container"><iframe src="https://myrtusvilla.com"></iframe></div>
+                <a href="https://myrtusvilla.com" target="_blank" class="link-out">Xem trang Myrtus Villa →</a>
+            </div>
+
+            <div class="card">
+                <h3>3. REC English Center: Landing Page & CMS</h3>
+                <p>
+                    <strong>Vấn đề:</strong> Trung tâm cần landing page chuyển đổi cao và khả năng chủ động cập nhật nội
+                    dung.
+                </p>
+                <span class="section-label">Giải pháp & Tính năng:</span>
+                <ul>
+                    <li>Trang chủ được tối ưu hóa cho mục đích chuyển đổi (Landing page).</li>
+                    <li>Hệ thống CMS cho phép người dùng đăng bài tin tức với <strong>Jodit Editor</strong>.</li>
+                </ul>
+                <p><strong>Tech Stack:</strong> Next.js, ASP.NET Core, PostgreSQL, Quartz.NET, Jodit Editor, WinSCP.</p>
+                <div class="iframe-container"><iframe src="https://anhngurec.edu.vn"></iframe></div>
+                <a href="https://anhngurec.edu.vn" target="_blank" class="link-out">Xem trang REC English →</a>
+            </div>
+
+            <div class="card">
+                <h3>4. Invoice Generator: Hệ thống Báo giá & Tài chính</h3>
+                <p>
+                    <strong>Vấn đề:</strong> Cần hệ thống tạo báo giá chuyên nghiệp, phân quyền chi tiết cho nhân viên.
+                </p>
+                <span class="section-label">Giải pháp & Tính năng:</span>
+                <ul>
+                    <li><strong>Automated Quoting:</strong> Xuất báo giá tự động dựa trên form nhập sản phẩm.</li>
+                    <li>
+                        <strong>ACL Security:</strong> Phân quyền chi tiết (Admin quản lý quyền Staff được xem tài liệu
+                        nào).
+                    </li>
+                    <li><strong>Template Customization:</strong> Cho phép chỉnh sửa template hóa đơn linh hoạt.</li>
+                    <li><strong>Data Handling:</strong> Hỗ trợ import/export danh sách sản phẩm qua file Excel/CSV.</li>
+                </ul>
+                <p>
+                    <strong>Tech Stack:</strong> Next.js, ASP.NET Core, PostgreSQL, Puppeteer Sharp, Quartz.NET, React
+                    Hook Form.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>5. Markethub: Sàn TMĐT Nông sản (Đồ án tốt nghiệp)</h3>
+                <p><strong>Vấn đề:</strong> Giải quyết bài toán mua chung nông sản, kết nối nông dân với thị trường.</p>
+                <span class="section-label">Giải pháp & Tính năng:</span>
+                <ul>
+                    <li><strong>Group-buy Mechanism:</strong> Mô hình mua chung tối ưu chi phí vận chuyển.</li>
+                    <li><strong>Real-time Chat:</strong> Kết nối trực tiếp người mua với shop qua SignalR.</li>
+                    <li>
+                        <strong>Data Visualization:</strong> Bản đồ tổng quát sản lượng bán hàng theo từng tỉnh thành.
+                    </li>
+                </ul>
+                <p><strong>Tech Stack:</strong> Next.js, ASP.NET Core, MySQL, SignalR, Google OAuth 2.0, JWT.</p>
+            </div>
+
+            <div class="card">
+                <h3>6. CMATE: Dashboard Quản lý Giáo phận</h3>
+                <p><strong>Vấn đề:</strong> Quản lý dữ liệu phức tạp trong giáo phận.</p>
+                <span class="section-label">Giải pháp & Tính năng:</span>
+                <ul>
+                    <li>Quản lý toàn diện hồ sơ nhà dòng và thông tin tu sĩ.</li>
+                    <li>Hệ thống bảng điểm học tập chuyên biệt cho giáo phận.</li>
+                    <li>CMS tin tức nội bộ với hệ thống phân quyền chặt chẽ.</li>
+                </ul>
+                <p><strong>Tech Stack:</strong> Angular, NgRx, Material UI, Angular CDK, RxJS, RESTful API.</p>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
