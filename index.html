@@ -1,224 +1,682 @@
 <!doctype html>
-<html lang="vi">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trần Tuấn Thịnh | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    <title>Trần Tuấn Thịnh — Software Engineer</title>
+    <meta name="description"
+        content="Full-stack Software Engineer specializing in ASP.NET Core and Next.js, building robust web applications, CMS platforms, and scalable backends." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="portfolio.css" />
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <div class="header-info">
-                <h1>Trần Tuấn Thịnh | Portfolio</h1>
-                <span class="job-title">Software Engineer</span>
-                <div class="contact-grid">
-                    <span class="label">Phone</span><span class="value"><a href="tel:0395279915">0395 279
-                            915</a></span><span class="label">Email</span><span class="value"><a
-                            href="mailto:thinh.tran.051102@gmail.com">thinh.tran.051102@gmail.com</a></span><span
-                        class="label">GitHub</span><span class="value"><a href="https://github.com/trantuanthinh"
-                            target="_blank">github.com/trantuanthinh</a></span><span class="label">LinkedIn</span><span
-                        class="value"><a href="https://linkedin.com/in/thịnh-tuấn-trần-27893827a/"
-                            target="_blank">linkedin.com/in/thịnh-tuấn-trần-27893827a</a></span><span
-                        class="label">Anthropic Certificate</span><span class="value"><a
-                            href="https://verify.skilljar.com/c/4bx7r2i82xn7/" target="_blank">Claude In
-                            Action</a></span>
-                </div>
+    <canvas id="starfield-canvas"></canvas>
+    <nav class="section-nav" id="section-nav" aria-label="Section Navigation">
+        <ul id="main-nav-list"></ul>
+    </nav>
+    <header class="compact-header" id="compact-header">
+        <div class="compact-brand">
+            <span class="brand-initials">TT</span><span class="brand-name" id="header-brand-name"></span>
+        </div>
+        <div class="compact-nav-right">
+            <div class="header-contact-dropdown">
+                <button type="button" class="header-contact-trigger" id="header-contact-trigger" aria-expanded="false"
+                    aria-label="Toggle contact info">
+                    <span>Contact Info</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="header-contact-popover" id="header-contact-popover"></div>
             </div>
-        </header>
-        <section class="skills-grid">
-            <div class="skill-card">
-                <h4>Frontend</h4>
-                <ul class="skill-list">
-                    <li>Next.js, Angular, TailwindCSS</li>
-                    <li>NgRx, Redux Toolkit, RxJS</li>
-                    <li>NextUI, Angular Material, Angular CDK</li>
-                    <li>Axios, Jodit Editor, React Hook Form</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <h4>Backend & Database</h4>
-                <ul class="skill-list">
-                    <li>C#, ASP.NET Core, RESTful API</li>
-                    <li>PostgreSQL, MSSQL, MySQL</li>
-                    <li>Quartz.NET, SignalR, JWT</li>
-                </ul>
-            </div>
-            <div class="skill-card">
-                <h4>DevOps & Tools</h4>
-                <ul class="skill-list">
-                    <li>Docker, Nginx, Google OAuth 2.0</li>
-                    <li>Postman, Swagger</li>
-                    <li>Git, DBeaver, WinSCP</li>
-                </ul>
-            </div>
-        </section>
-        <section>
-            <div class="card">
-                <h3>1. Setup: Nền tảng Giáo dục & Marketing tích hợp</h3>
-                <p>
-                    <strong>Vấn đề:</strong>Doanh nghiệp cần một hệ sinh thái đồng bộ để quảng bá khóa học, quản lý danh
-                    sách giáo viên/lớp học và bài toán kiểm soát hoa hồng dựa trên lượt giới thiệu (referral).
-                </p>
-                <span class="section-label">Giải pháp & Tư duy xử lý:</span>
-                <ul>
-                    <li>
-                        <strong>Marketing & Branding:</strong>Xây dựng Landing Page chuyên nghiệp, tích hợp CMS quản trị
-                        nội dung khóa học và tin tức giúp chủ động cập nhật giá cả và thông tin lớp học.
-                    </li>
-                    <li>
-                        <strong>Hệ thống Referral:</strong>Phát triển module quản lý người giới thiệu và cơ chế xác thực
-                        thông qua mã Ref, đảm bảo tính chính xác trong việc tính toán hoa hồng.
-                    </li>
-                    <li>
-                        <strong>Quản lý đào tạo:</strong>Thiết kế cấu trúc dữ liệu cho phép người dùng xem lịch học,
-                        danh
-                        sách giáo viên và thông tin chi tiết lớp học theo thời gian thực.
-                    </li>
-                </ul>
-                <div class="iframe-container"><iframe src="https://setup.edu.vn"></iframe></div>
-                <a href="https://setup.edu.vn" target="_blank" class="link-out">Xem trang Setup →</a>
-            </div>
-            <div class="card">
-                <h3>2. Myrtus Villa: Hệ thống Quản trị & Vận hành Villa</h3>
-                <p>
-                    <strong>Vấn đề:</strong>Quy trình quản lý thủ công gây khó khăn cho việc định giá theo mùa vụ (lễ,
-                    Tết Âm/Dương) và thiếu sự liên kết trong việc quản lý vận hành dọn phòng.
-                </p>
-                <span class="section-label">Giải pháp & Tư duy xử lý:</span>
-                <ul>
-                    <li>
-                        <strong>Dynamic Pricing Engine:</strong>Phát triển công cụ tính giá linh hoạt, tự động áp dụng
-                        giá theo ngày lễ (Âm/Dương) và cộng dồn phụ phí, loại bỏ sai sót tính toán thủ công.
-                    </li>
-                    <li>
-                        <strong>Vận hành thông minh:</strong>Xây dựng quy trình tự động (Automated Housekeeping) phân
-                        tách checklist công việc dọn phòng dựa trên từng loại phòng khác nhau, đảm bảo chất lượng phục
-                        vụ
-                        đồng nhất.
-                    </li>
-                    <li>
-                        <strong>Quản trị tập trung:</strong>Hệ thống admin quản lý đặt phòng trực quan, giúp bộ phận lễ
-                        tân theo dõi trạng thái phòng và lịch trình khách dễ dàng.
-                    </li>
-                </ul>
-                <div class="iframe-container"><iframe src="https://myrtusvilla.com"></iframe></div>
-                <a href="https://myrtusvilla.com" target="_blank" class="link-out">Xem trang Myrtus Villa →</a>
-            </div>
-            <div class="card">
-                <h3>3. REC English Center: Landing Page & CMS Tự động hóa</h3>
-                <p>
-                    <strong>Vấn đề:</strong>Trung tâm cần một nền tảng truyền thông mạnh mẽ với yêu cầu cao về việc cập
-                    nhật nội dung tự động để đảm bảo tính thời điểm của thông tin khóa học và tin tức.
-                </p>
-                <span class="section-label">Giải pháp & Tư duy xử lý:</span>
-                <ul>
-                    <li>
-                        <strong>Landing Page chuyển đổi:</strong>Thiết kế giao diện tập trung vào trải nghiệm người
-                        dùng,
-                        hiển thị rõ ràng danh sách khóa học, giá tiền và thông tin giáo viên.
-                    </li>
-                    <li>
-                        <strong>CMS Automation:</strong>Xây dựng cơ chế lên lịch tự động đăng bài (Post scheduling)
-                        thông
-                        qua Quartz.NET, giúp đội ngũ marketing chủ động quản lý chiến dịch nội dung mà không cần can
-                        thiệp kỹ thuật.
-                    </li>
-                </ul>
-                <div class="iframe-container"><iframe src="https://anhngurec.edu.vn"></iframe></div>
-                <a href="https://anhngurec.edu.vn" target="_blank" class="link-out">Xem trang REC English →</a>
-            </div>
-            <div class="card">
-                <h3>4. Invoice Generator: Hệ thống Báo giá Tài chính chuyên sâu</h3>
-                <p>
-                    <strong>Vấn đề:</strong>Doanh nghiệp đối mặt với khó khăn khi tạo báo giá thủ công, mất thời gian
-                    đồng bộ dữ liệu sản phẩm và thiếu sự kiểm soát quyền truy cập tài liệu giữa các nhân viên.
-                </p>
-                <span class="section-label">Giải pháp & Tư duy xử lý:</span>
-                <ul>
-                    <li>
-                        <strong>Data Handling:</strong>Xây dựng module xử lý dữ liệu hàng loạt (Import/Export
-                        CSV/Excel),
-                        tối ưu hóa thời gian cập nhật danh mục sản phẩm.
-                    </li>
-                    <li>
-                        <strong>Dynamic Rendering:</strong>Phát triển bộ template engine cho phép tùy biến mẫu báo giá,
-                        điền form tự động và hỗ trợ xem trước (preview) trước khi xuất file.
-                    </li>
-                    <li>
-                        <strong>ACL Security:</strong>Triển khai hệ thống phân quyền (Access Control List) chặt chẽ,
-                        giúp
-                        quản trị viên giới hạn phạm vi truy cập tài liệu, đảm bảo bảo mật thông tin tài chính nội bộ.
-                    </li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>5. Markethub: Sàn TMĐT Nông sản & Mua chung (Đồ án tốt nghiệp)</h3>
-                <p>
-                    <strong>Vấn đề:</strong>Nông sản thường bị đội chi phí vận chuyển khi bán lẻ và khó kết nối trực
-                    tiếp
-                    giữa nông dân với người tiêu dùng tại các khu vực địa lý phân tán.
-                </p>
-                <span class="section-label">Giải pháp & Tư duy xử lý:</span>
-                <ul>
-                    <li>
-                        <strong>Mô hình Mua chung (Group-buy):</strong>Phát triển thuật toán nhóm đơn hàng dựa trên địa
-                        điểm (tỉnh/thành phố), cho phép người dùng nhìn thấy các đơn hàng cùng khu vực để tham gia mua
-                        chung, giúp tối ưu hóa chi phí logistic.
-                    </li>
-                    <li>
-                        <strong>Data Visualization:</strong>Xây dựng module bản đồ số Việt Nam (64 tỉnh thành), tích hợp
-                        dữ liệu thống kê đơn hàng theo thời gian thực trực quan trên từng vùng, hỗ trợ người dùng và
-                        shop
-                        theo dõi xu hướng thị trường.
-                    </li>
-                    <li>
-                        <strong>Hệ thống kết nối & Bảo mật:</strong>Tích hợp Google OAuth 2.0 để tối ưu trải nghiệm đăng
-                        nhập. Xây dựng kênh giao tiếp trực tiếp giữa khách hàng và shop thông qua SignalR, đảm bảo trao
-                        đổi thông tin diễn ra tức thời (real-time).
-                    </li>
-                    <li>
-                        <strong>Quản trị cửa hàng:</strong>Xây dựng luồng đăng bán sản phẩm trực quan, cho phép nông
-                        dân/shop tự quản lý hàng hóa và đơn hàng của mình.
-                    </li>
-                </ul>
-                <div class="report-actions" style="margin-top: 15px">
-                    <a href="CSE 493 - Capstone Project 3 - Markethub Ecommerce Platform - 27062025.pdf" target="_blank"
-                        class="link-out">Xem báo cáo chi tiết (PDF)</a>
-                </div>
-            </div>
-            <div class="card">
-                <h3>6. C-MATE: Dashboard Quản lý Giáo phận (non-profit)</h3>
-                <span class="section-label">Giải pháp & Tư duy xử lý:</span>
-                <ul>
-                    <li>
-                        <strong>Phát triển hệ thống theo yêu cầu:</strong>Xây dựng dashboard quản lý toàn diện, được tùy
-                        biến riêng biệt theo các quy trình nghiệp vụ đặc thù của giáo phận.
-                    </li>
-                    <li>
-                        <strong>Quản trị nhân sự & hồ sơ:</strong>Số hóa toàn bộ hồ sơ tu sĩ và nhà dòng, thiết lập cấu
-                        trúc dữ liệu chặt chẽ để quản lý, tra cứu và truy xuất lịch sử nhân sự.
-                    </li>
-                    <li>
-                        <strong>Hệ thống quản lý điểm:</strong>Xây dựng bảng điểm học tập chuyên sâu với quy trình tính
-                        toán tự động, đảm bảo tính chính xác và minh bạch thay thế cho việc quản lý thủ công.
-                    </li>
-                    <li>
-                        <strong>Quản lý nội dung (CMS):</strong>Phát triển hệ thống quản trị tin tức giúp giáo phận chủ
-                        động đăng tải và cập nhật các thông báo.
-                    </li>
-                    <li>
-                        <strong>Tối ưu hiệu năng:</strong>Sử dụng Angular và NgRx để xử lý trạng thái ứng dụng phức tạp,
-                        đảm bảo dashboard vận hành mượt mà với khối lượng dữ liệu lớn.
-                    </li>
-                </ul>
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg><svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+    <main class="main-container">
+        <section id="about" class="content-section header-info-section" data-num="01" data-title="ABOUT">
+            <div class="hero-content">
+                <div class="hero-badge"><span class="status-dot"></span><span id="hero-status"></span></div>
+                <h1 class="hero-title" id="hero-title"></h1>
+                <p class="hero-subtitle" id="hero-subtitle"></p>
+                <p class="hero-tagline" id="hero-tagline"></p>
+                <div class="hero-contact-card" id="hero-contact-card"></div>
             </div>
         </section>
-    </div>
+        <section id="projects" class="content-section section" data-num="02" data-title="PROJECTS & EXPERIENCE">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-heading">Projects & Experience</h2>
+            </div>
+            <div class="projects-grid" id="projects-grid"></div>
+        </section>
+        <section id="skills" class="content-section section" data-num="03" data-title="SKILLS">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-heading">Skills</h2>
+            </div>
+            <div class="skills-grid" id="skills-grid"></div>
+        </section>
+        <section id="education" class="content-section section" data-num="04" data-title="EDUCATION">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-heading">Education</h2>
+            </div>
+            <div class="education-stack" id="education-stack"></div>
+        </section>
+        <footer class="site-footer">
+            <p>© 2026 Trần Tuấn Thịnh. All rights reserved.</p>
+        </footer>
+    </main>
+    <button id="scroll-top" class="scroll-to-top" aria-label="Scroll to top">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+    <script>
+        const portfolioData = {
+            personal: {
+                name: "Trần Tuấn Thịnh",
+                role: "Software Engineer",
+                status: "Available for new opportunities",
+                tagline:
+                    "Full-stack Software Engineer with comprehensive experience in developing CMS platforms, booking systems, e-commerce applications, and internal dashboards. Expert in building end-to-end solutions using ASP.NET Core and Next.js.",
+            },
+            contact: [
+                {
+                    label: "Phone",
+                    value: "0395 279 915",
+                    href: "tel:+84395279915",
+                    isLink: true,
+                    copyText: "0395 279 915",
+                    copyAria: "Copy phone number",
+                },
+                {
+                    label: "Email",
+                    value: "thinh.tran.051102@gmail.com",
+                    href: "mailto:thinh.tran.051102@gmail.com",
+                    isLink: true,
+                    copyText: "thinh.tran.051102@gmail.com",
+                    copyAria: "Copy email address",
+                },
+                {
+                    label: "GitHub",
+                    value: "github.com/trantuanthinh",
+                    href: "https://github.com/trantuanthinh",
+                    isLink: true,
+                    external: true,
+                    copyText: "https://github.com/trantuanthinh",
+                    copyAria: "Copy GitHub link",
+                },
+                {
+                    label: "LinkedIn",
+                    value: "linkedin.com/in/thịnh-tuấn-trần-27893827a",
+                    href: "https://www.linkedin.com/in/thịnh-tuấn-trần-27893827a/",
+                    isLink: true,
+                    external: true,
+                    copyText: "https://www.linkedin.com/in/thịnh-tuấn-trần-27893827a/",
+                    copyAria: "Copy LinkedIn link",
+                },
+            ],
+            projects: [
+                {
+                    id: "project-setup",
+                    index: "01",
+                    title: "SETUP",
+                    link: "https://setup.edu.vn",
+                    linkText: "setup.edu.vn ↗",
+                    external: true,
+                    role: "Full-stack Developer",
+                    duration: "Mar 2026 – Apr 2026",
+                    domain: "Education Platform / Marketing Technology",
+                    overview:
+                        "Integrated Education & Marketing platform featuring a landing page, custom CMS, and referral system.",
+                    problem:
+                        "The business needed a synchronized ecosystem to promote courses, manage lists of teachers/classes, and handle commission calculations based on referrals.",
+                    solution:
+                        "Built a professional Landing Page integrated with a CMS for course/news management, developed a referral tracking and Ref-code validation module, and structured data for real-time timetable and class details.",
+                    decisions: [
+                        "Utilized PostgreSQL JSONB to decouple flexible marketing metadata from rigid relational tables.",
+                        "Implemented Quartz.NET background job schedulers to automate publishing cycles and eliminate manual intervention.",
+                        "Structured hierarchical media storage for structured document and asset management inside the CMS UI.",
+                    ],
+                    techStack: [
+                        "Next.js",
+                        "ASP.NET Core",
+                        "EF Core",
+                        "PostgreSQL JSONB",
+                        "Docker",
+                        "Nginx",
+                        "Quartz.NET",
+                        "NextUI",
+                        "React Hook Form",
+                        "DBeaver",
+                        "WinSCP",
+                    ],
+                },
+                {
+                    id: "project-myrtus-villa",
+                    index: "02",
+                    title: "MYRTUS VILLA",
+                    link: "https://myrtusvilla.com",
+                    linkText: "myrtusvilla.com ↗",
+                    external: true,
+                    role: "Full-stack Developer",
+                    duration: "Jan 2026 – Mar 2026",
+                    domain: "Hospitality / Property Management",
+                    overview: "Real-time internal villa booking system and property management dashboard.",
+                    problem:
+                        "Manual management processes caused difficulties in seasonal pricing (Lunar/Solar holidays) and lacked coordination in housekeeping operations.",
+                    solution:
+                        "Developed a flexible dynamic pricing engine applying holiday rates automatically, built automated housekeeping checklists by room type, and created an intuitive admin booking dashboard.",
+                    decisions: [
+                        "Centralized pricing calculation rules on the backend to guarantee absolute transaction consistency.",
+                        "Developed custom holiday evaluation logic mapping complex Solar/Lunar calendar variances.",
+                        "Integrated automated status tracking handlers for background reservation processing.",
+                    ],
+                    techStack: [
+                        "Next.js",
+                        "ASP.NET Core",
+                        "EF Core",
+                        "PostgreSQL",
+                        "Quartz.NET",
+                        "NextUI",
+                        "Docker",
+                        "Nginx",
+                        "SSL",
+                        "DBeaver",
+                    ],
+                },
+                {
+                    id: "project-rec",
+                    index: "03",
+                    title: "REC ENGLISH CENTER",
+                    link: "https://anhngurec.edu.vn",
+                    linkText: "anhngurec.edu.vn ↗",
+                    external: true,
+                    role: "Full-stack Developer",
+                    duration: "Sep 2025 – Oct 2025",
+                    domain: "Education / Content Management",
+                    overview:
+                        "Marketing landing page and customized content management system for center announcements, courses, and news publication.",
+                    problem:
+                        "The center required a strong communication platform with high demands for automated content updates to ensure course information and news remained timely.",
+                    solution:
+                        "Designed a conversion-focused Landing Page displaying courses, pricing, and teachers clearly, and integrated Quartz.NET for automated content post-scheduling.",
+                    decisions: [
+                        "Enforced strict sanitization rules on rich-text input to persist clean, valid HTML output.",
+                        "Used WinSCP configuration patterns to manage static file permissions and directory mapping safely on the VPS server.",
+                        "Separated frontend rendering from backend CMS storage concerns.",
+                    ],
+                    techStack: [
+                        "Next.js",
+                        "ASP.NET Core",
+                        "EF Core",
+                        "PostgreSQL",
+                        "Quartz.NET",
+                        "Jodit Editor",
+                        "NextUI",
+                        "Docker",
+                        "Nginx",
+                        "WinSCP",
+                    ],
+                },
+                {
+                    id: "project-invoice",
+                    index: "04",
+                    title: "INVOICE GENERATOR (SUN)",
+                    linkText: "Internal Tool",
+                    isStatic: true,
+                    role: "Full-stack Developer",
+                    duration: "Aug 2025 – Oct 2025",
+                    domain: "Financial / Document Management",
+                    overview:
+                        "System built for generating dynamic, pixel-accurate PDF commercial quotations and invoices with strict authorization controls.",
+                    problem:
+                        "Businesses faced difficulties creating manual quotations, wasted time syncing product data, and lacked control over document access permissions among staff.",
+                    solution:
+                        "Built a bulk data processing module (CSV/Excel Import/Export), developed a template engine with auto-fill/preview support, and implemented strict Access Control List (ACL) security.",
+                    decisions: [
+                        "Implemented Puppeteer Sharp for precise, browser-rendered PDF outputs from HTML/CSS templates.",
+                        "Combined RBAC and ACL into a hybrid authorization model to handle object-level permission checks efficiently.",
+                        "Configured automated periodic data auditing utilizing background maintenance jobs.",
+                    ],
+                    techStack: [
+                        "Next.js",
+                        "ASP.NET Core",
+                        "EF Core",
+                        "PostgreSQL",
+                        "Puppeteer Sharp",
+                        "Quartz.NET",
+                        "React Hook Form",
+                        "DBeaver",
+                    ],
+                },
+                {
+                    id: "project-markethub",
+                    index: "05",
+                    title: "MARKETHUB",
+                    link: "CSE 493 - Capstone Project 3 - Markethub Ecommerce Platform - 27062025.pdf",
+                    linkText: "View Documentation ↗",
+                    external: true,
+                    role: "Full-stack Developer",
+                    duration: "Oct 2024 – Jul 2025",
+                    domain: "Group-buy E-commerce",
+                    overview:
+                        "Group-buy e-commerce platform incorporating real-time communication channels, geographic data processing, and user authentication workflows.",
+                    problem:
+                        "Agricultural products often suffered from inflated shipping costs in retail and lacked direct connections between farmers and consumers across fragmented geographical areas.",
+                    solution:
+                        "Developed an order-grouping algorithm based on location to optimize logistics, built a digital map module of Vietnam with real-time regional order stats, integrated Google OAuth 2.0 / SignalR for instant chat, and created intuitive store management workflows.",
+                    decisions: [
+                        "Adopted SignalR for reliable, stateful real-time chat and communication features.",
+                        "Optimized spatial query indexing for geographical data structures in MySQL.",
+                        "Integrated Google OAuth 2.0 for streamlined user onboarding and authentication security.",
+                    ],
+                    pdfSrc: "CSE 493 - Capstone Project 3 - Markethub Ecommerce Platform - 27062025.pdf",
+                    pdfTitle: "Markethub Project Documentation",
+                    techStack: [
+                        "Next.js",
+                        "ASP.NET Core",
+                        "MySQL",
+                        "SignalR",
+                        "Quartz.NET",
+                        "JWT",
+                        "Google OAuth",
+                    ],
+                },
+                {
+                    id: "project-cmate",
+                    index: "06",
+                    title: "C-MATE ADMIN DASHBOARD",
+                    linkText: "Enterprise Dashboard",
+                    isStatic: true,
+                    role: "Frontend Developer",
+                    duration: "Oct 2024 – Present",
+                    domain: "Administrative Management System",
+                    overview:
+                        "Modular administrative dashboard designed for handling complex diocesan operational data, user configurations, and multi-level permissions.",
+                    problem:
+                        "Managing extensive operational datasets and dynamic multi-level permission states across numerous administrative modules led to scaling and maintenance challenges.",
+                    solution:
+                        "Built a comprehensive management dashboard tailored to unique diocesan workflows, featuring digital personnel records, automated grade calculation tables, CMS news management, and high-performance state handling using Angular and NgRx.",
+                    decisions: [
+                        "Implemented NgRx state management to centralize complex application state and data caching.",
+                        "Designed modular UI components using Angular and Material UI for consistent enterprise design.",
+                        "Created dynamic authorization filters to handle complex role-based UI rendering.",
+                    ],
+                    techStack: ["Angular", "NgRx", "Material UI", "Angular CDK", "RxJS", "RESTful API Integration"],
+                },
+            ],
+            skills: [
+                { category: "Backend", tags: "ASP.NET Core, EF Core, Quartz.NET, SignalR, Puppeteer Sharp" },
+                { category: "Frontend", tags: "Next.js, Angular, React, Tailwind CSS, NextUI, RxJS, Jodit Editor" },
+                { category: "Database", tags: "PostgreSQL, MSSQL, MySQL, Database Indexing, Query Optimization" },
+                {
+                    category: "DevOps & Architecture",
+                    tags: "Docker, Nginx, Linux VPS, RESTful API design, Repository Pattern",
+                },
+                {
+                    category: "Soft Skills",
+                    fullWidth: true,
+                    softSkills: [
+                        "<strong>Active Learner:</strong> Continuously exploring new technologies and adapting to evolving engineering standards.",
+                        "<strong>Analytical Thinking:</strong> Breaking down complex business requirements into discrete technical modules.",
+                        "<strong>Problem Solving:</strong> Identifying performance bottlenecks and driving system optimizations.",
+                        "<strong>Team Collaboration:</strong> Working effectively in cross-functional teams following Agile principles.",
+                        "<strong>Adaptability:</strong> Rapidly adjusting to shifting project scopes, tech stacks, and team requirements.",
+                    ],
+                },
+            ],
+            education: [
+                {
+                    degree: "Bachelor of Software Engineering",
+                    years: "2020 – 2025",
+                    institution: "Eastern International University (EIU)",
+                    gpa: "3.06 / 4.0",
+                    english: "IELTS 6.0",
+                },
+                {
+                    degree: "Anthropic Certificate",
+                    isCert: true,
+                    institution: "Claude In Action ↗",
+                    certLink: "https://verify.skilljar.com/c/4bx7r2i82xn7/",
+                },
+            ],
+        };
+
+        function renderPortfolio() {
+            // 1. Navigation
+            const mainNavList = document.getElementById("main-nav-list");
+            let navHtml = `<li><a href="#about" class="nav-item active" data-target="about"><span class="nav-num">01</span><span class="nav-label">ABOUT</span></a></li>`;
+            navHtml += `<li class="has-subnav"><a href="#projects" class="nav-item" data-target="projects"><span class="nav-num">02</span><span class="nav-label">PROJECTS & EXPERIENCE</span></a><ul class="project-subnav">`;
+            portfolioData.projects.forEach((p) => {
+                navHtml += `<li><a href="#${ p.id }" class="subnav-item" data-target="${ p.id }"><span class="nav-num">${ p.index }</span><span class="nav-label">${ p.title }</span></a></li>`;
+            });
+            navHtml += `</ul></li>`;
+            navHtml += `<li><a href="#skills" class="nav-item" data-target="skills"><span class="nav-num">03</span><span class="nav-label">SKILLS</span></a></li>`;
+            navHtml += `<li><a href="#education" class="nav-item" data-target="education"><span class="nav-num">04</span><span class="nav-label">EDUCATION</span></a></li>`;
+            mainNavList.innerHTML = navHtml;
+
+            // Header brand
+            document.getElementById("header-brand-name").textContent = portfolioData.personal.name;
+
+            // Contact Popover & Hero contact card
+            const popover = document.getElementById("header-contact-popover");
+            const heroContactCard = document.getElementById("hero-contact-card");
+
+            let popoverHtml = "";
+            let heroCardHtml = "";
+            portfolioData.contact.forEach((c) => {
+                popoverHtml += `<div class="popover-item"><span class="popover-label">${ c.label }</span><div class="popover-value-row"><a href="${ c.href }" ${ c.external ? 'target="_blank" rel="noopener noreferrer"' : "" }>${ c.value }</a><button type="button" class="copy-btn-sm" onclick="copyToClipboard('${ c.copyText }', this)" aria-label="${ c.copyAria }">Copy</button></div></div>`;
+                heroCardHtml += `<div class="hero-contact-row"><span class="hc-label">${ c.label }</span><div class="hc-val-group"><a href="${ c.href }" ${ c.external ? 'target="_blank" rel="noopener noreferrer"' : "" }>${ c.value }</a><button type="button" class="copy-btn" onclick="copyToClipboard('${ c.copyText }', this)" aria-label="${ c.copyAria }">Copy</button></div></div>`;
+            });
+            popover.innerHTML = popoverHtml;
+            heroContactCard.innerHTML = heroCardHtml;
+
+            // Hero section text
+            document.getElementById("hero-status").textContent = portfolioData.personal.status;
+            document.getElementById("hero-title").textContent = portfolioData.personal.name;
+            document.getElementById("hero-subtitle").textContent = portfolioData.personal.role;
+            document.getElementById("hero-tagline").textContent = portfolioData.personal.tagline;
+
+            // Projects
+            const projectsGrid = document.getElementById("projects-grid");
+            let projectsHtml = "";
+            portfolioData.projects.forEach((p) => {
+                projectsHtml += `<article class="pe-item" id="${ p.id }"><div class="pe-top"><div class="pe-heading-group"><span class="pe-index">${ p.index }</span><h3 class="pe-title">${ p.title }</h3></div>`;
+                if (p.isStatic) {
+                    projectsHtml += `<span class="static pe-link">${ p.linkText }</span>`;
+                } else {
+                    projectsHtml += `<a href="${ p.link }" target="_blank" rel="noopener noreferrer" class="pe-link">${ p.linkText }</a>`;
+                }
+                projectsHtml += `</div><div class="pe-meta-grid"><div class="pe-meta-field"><strong>Role:</strong>${ p.role }</div><div class="pe-meta-field"><strong>Duration:</strong>${ p.duration }</div><div class="pe-meta-field"><strong>Domain:</strong>${ p.domain }</div></div><div class="pe-section-block"><h4 class="pe-subheading">Overview</h4><p class="pe-desc">${ p.overview }</p></div><div class="pe-section-block"><h4 class="pe-subheading">Problem</h4><p class="pe-desc">${ p.problem }</p></div><div class="pe-section-block"><h4 class="pe-subheading">Solution & Engineering Approach</h4><p class="pe-desc">${ p.solution }</p></div><div class="pe-section-block"><h4 class="pe-subheading">Key Engineering Decisions</h4><ul class="pe-bullet-list">`;
+                p.decisions.forEach((d) => {
+                    projectsHtml += `<li>${ d }</li>`;
+                });
+                projectsHtml += `</ul></div>`;
+                if (p.pdfSrc) {
+                    projectsHtml += `<div class="pe-pdf-container"><iframe src="${ p.pdfSrc }" title="${ p.pdfTitle }" loading="lazy"></iframe></div>`;
+                }
+                projectsHtml += `<div class="pe-tech-stack">`;
+                p.techStack.forEach((t) => {
+                    projectsHtml += `<span>${ t }</span>`;
+                });
+                projectsHtml += `</div></article>`;
+            });
+            projectsGrid.innerHTML = projectsHtml;
+
+            // Skills
+            const skillsGrid = document.getElementById("skills-grid");
+            let skillsHtml = "";
+            portfolioData.skills.forEach((s) => {
+                if (s.fullWidth) {
+                    skillsHtml += `<div class="skill-category full-width"><h3>${ s.category }</h3><ul class="soft-skills-list">`;
+                    s.softSkills.forEach((ss) => {
+                        skillsHtml += `<li>${ ss }</li>`;
+                    });
+                    skillsHtml += `</ul></div>`;
+                } else {
+                    skillsHtml += `<div class="skill-category"><h3>${ s.category }</h3><p class="skill-tags">${ s.tags }</p></div>`;
+                }
+            });
+            skillsGrid.innerHTML = skillsHtml;
+
+            // Education
+            const educationStack = document.getElementById("education-stack");
+            let eduHtml = "";
+            portfolioData.education.forEach((e) => {
+                if (e.isCert) {
+                    eduHtml += `<div class="education-card cert-card"><div class="edu-top"><h3 class="edu-degree">${ e.degree }</h3></div><p class="edu-institution cert-title-row"><a href="${ e.certLink }" target="_blank" rel="noopener noreferrer" class="cert-link">${ e.institution }</a></p></div>`;
+                } else {
+                    eduHtml += `<div class="education-card"><div class="edu-top"><h3 class="edu-degree">${ e.degree }</h3><span class="edu-years">${ e.years }</span></div><p class="edu-institution">${ e.institution }</p><div class="edu-metrics"><div class="metric-badge">GPA: <strong>${ e.gpa }</strong></div><div class="metric-badge">English: <strong>${ e.english }</strong></div></div></div>`;
+                }
+            });
+            educationStack.innerHTML = eduHtml;
+        }
+
+        renderPortfolio();
+
+        const root = document.documentElement;
+        const savedTheme = localStorage.getItem("theme") || "dark";
+        root.className = savedTheme;
+        document.getElementById("theme-toggle").addEventListener("click", () => {
+            const newTheme = root.classList.contains("dark") ? "light" : "dark";
+            root.className = newTheme;
+            localStorage.setItem("theme", newTheme);
+        });
+
+        function copyToClipboard(value, button) {
+            navigator.clipboard
+                .writeText(value)
+                .then(() => {
+                    const originalText = button.textContent;
+                    button.textContent = "Copied!";
+                    button.classList.add("copied");
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.classList.remove("copied");
+                    }, 2000);
+                })
+                .catch((err) => {
+                    console.error("Failed to copy text: ", err);
+                });
+        }
+
+        const contactTrigger = document.getElementById("header-contact-trigger");
+        const contactPopover = document.getElementById("header-contact-popover");
+        contactTrigger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const isOpen = contactPopover.classList.toggle("show");
+            contactTrigger.setAttribute("aria-expanded", isOpen);
+        });
+        window.addEventListener("click", (e) => {
+            if (!e.target.closest(".header-contact-dropdown")) {
+                contactPopover.classList.remove("show");
+                contactTrigger.setAttribute("aria-expanded", "false");
+            }
+        });
+
+        const mouse = { x: -1000, y: -1000 };
+        window.addEventListener("pointermove", (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        const canvas = document.getElementById("starfield-canvas");
+        const ctx = canvas.getContext("2d");
+        let width, height;
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = width * dpr;
+            canvas.height = height * dpr;
+            ctx.scale(dpr, dpr);
+            canvas.style.width = `${ width }px`;
+            canvas.style.height = `${ height }px`;
+        }
+        window.addEventListener("resize", resize);
+        resize();
+
+        const stars = Array.from({ length: 120 }, () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            size: Math.random() * 1.5 + 0.5,
+            speedX: (Math.random() - 0.5) * 0.2,
+            speedY: (Math.random() - 0.5) * 0.2,
+        }));
+
+        let ripples = [];
+        window.addEventListener("click", (e) => {
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+            if (e.target.closest("button") || e.target.closest("a")) return;
+            ripples.push({ x: e.clientX, y: e.clientY, startTime: Date.now() });
+        });
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            const isDark = root.classList.contains("dark");
+            const [r, g, b] = isDark ? [52, 211, 153] : [6, 95, 70];
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            stars.forEach((s) => {
+                if (!reduceMotion) {
+                    s.x = (s.x + s.speedX + width) % width;
+                    s.y = (s.y + s.speedY + height) % height;
+                }
+                const dist = Math.hypot(s.x - mouse.x, s.y - mouse.y);
+                const influence = Math.max(0, 1 - dist / 180);
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.size + influence * 2, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${ r }, ${ g }, ${ b }, ${ isDark ? 0.25 + influence * 0.55 : 0.15 + influence * 0.45 })`;
+                ctx.fill();
+            });
+
+            if (!reduceMotion) {
+                ripples = ripples.filter((rpl) => {
+                    const age = (Date.now() - rpl.startTime) / 1000;
+                    if (age > 1.2) return false;
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(${ r }, ${ g }, ${ b }, ${ 0.4 * (1 - age / 1.2) })`;
+                    ctx.lineWidth = 1.5;
+                    ctx.arc(rpl.x, rpl.y, age * 150, 0, Math.PI * 2);
+                    ctx.stroke();
+                    return true;
+                });
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        const sections = document.querySelectorAll(".content-section");
+        const navItems = document.querySelectorAll(".section-nav .nav-item");
+        const projectItems = document.querySelectorAll(".pe-item");
+        const subnavItems = document.querySelectorAll(".section-nav .subnav-item");
+
+        const observerOptions = {
+            root: null,
+            rootMargin: "-20% 0px -60% 0px",
+            threshold: 0,
+        };
+
+        const activeSectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const targetId = entry.target.getAttribute("id");
+                    navItems.forEach((item) => {
+                        if (item.getAttribute("data-target") === targetId) {
+                            item.classList.add("active");
+                        } else {
+                            item.classList.remove("active");
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach((section) => {
+            activeSectionObserver.observe(section);
+            const entranceObserver = new IntersectionObserver(
+                (entries, obs) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.1, rootMargin: "0px 0px -10% 0px" },
+            );
+            entranceObserver.observe(section);
+        });
+
+        const projectObserverOptions = {
+            root: null,
+            rootMargin: "-10% 0px -50% 0px",
+            threshold: 0,
+        };
+
+        const activeProjectObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const projectId = entry.target.getAttribute("id");
+                    subnavItems.forEach((subItem) => {
+                        if (subItem.getAttribute("data-target") === projectId) {
+                            subItem.classList.add("active");
+                        } else {
+                            subItem.classList.remove("active");
+                        }
+                    });
+                }
+            });
+        }, projectObserverOptions);
+
+        projectItems.forEach((project) => {
+            activeProjectObserver.observe(project);
+        });
+
+        window.addEventListener(
+            "scroll",
+            () => {
+                const scrollY = window.scrollY;
+                document
+                    .getElementById("compact-header")
+                    .classList.toggle("visible", scrollY > window.innerHeight * 0.4);
+                document.getElementById("scroll-top").classList.toggle("visible", scrollY > 500);
+            },
+            { passive: true },
+        );
+
+        document.getElementById("scroll-top").addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        document.querySelectorAll('.section-nav .subnav-item').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId.startsWith('#') && targetId.length > 1) {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+
+                        const headerOffset = 90;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+
+                        history.pushState(null, null, targetId);
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
