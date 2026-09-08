@@ -6,16 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trần Tuấn Thịnh — Software Engineer</title>
     <meta name="description"
-        content="Full-stack Software Engineer specializing in ASP.NET Core and Next.js, building robust web applications, CMS platforms, and scalable backends." />
+        content="Portfolio of Trần Tuấn Thịnh, Full-stack Software Engineer." />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
+
     <link rel="stylesheet" href="portfolio.css" />
 </head>
 
 <body>
+    <div id="intro-screen" class="intro-screen">
+        <div class="shutter-left"></div>
+        <div class="shutter-right"></div>
+        <div class="intro-center">
+            <div class="intro-core">
+                <div class="cyber-ring"></div>
+                <div class="cyber-ring-inner"></div>
+            </div>
+            <div class="intro-text-group">
+                <span class="intro-name">trantuanthinh</span>
+                <span class="intro-role">Software Engineer</span>
+            </div>
+        </div>
+    </div>
+
     <canvas id="starfield-canvas"></canvas>
     <nav class="section-nav" id="section-nav" aria-label="Section Navigation">
         <ul id="main-nav-list"></ul>
@@ -25,6 +42,16 @@
             <span class="brand-initials">TT</span><span class="brand-name" id="header-brand-name"></span>
         </div>
         <div class="compact-nav-right">
+            <div class="compact-clock-badge" id="compact-clock">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent)">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span id="clock-date">Mon, Mar 9, 2026</span>
+                <span>•</span>
+                <span id="clock-time">00:00:00</span>
+            </div>
             <div class="header-contact-dropdown">
                 <button type="button" class="header-contact-trigger" id="header-contact-trigger" aria-expanded="false"
                     aria-label="Toggle contact info">
@@ -86,7 +113,7 @@
             <div class="education-stack" id="education-stack"></div>
         </section>
         <footer class="site-footer">
-            <p>© 2026 Trần Tuấn Thịnh. All rights reserved.</p>
+            <p>© <span id="current-year"></span> Trần Tuấn Thịnh. All rights reserved.</p>
         </footer>
     </main>
     <button id="scroll-top" class="scroll-to-top" aria-label="Scroll to top">
@@ -297,15 +324,7 @@
                     ],
                     pdfSrc: "CSE 493 - Capstone Project 3 - Markethub Ecommerce Platform - 27062025.pdf",
                     pdfTitle: "Markethub Project Documentation",
-                    techStack: [
-                        "Next.js",
-                        "ASP.NET Core",
-                        "MySQL",
-                        "SignalR",
-                        "Quartz.NET",
-                        "JWT",
-                        "Google OAuth",
-                    ],
+                    techStack: ["Next.js", "ASP.NET Core", "MySQL", "SignalR", "Quartz.NET", "JWT", "Google OAuth"],
                 },
                 {
                     id: "project-cmate",
@@ -367,8 +386,8 @@
             ],
         };
 
+        // Render portfolio navigation, contact cards, and main sections from data
         function renderPortfolio() {
-            // 1. Navigation
             const mainNavList = document.getElementById("main-nav-list");
             let navHtml = `<li><a href="#about" class="nav-item active" data-target="about"><span class="nav-num">01</span><span class="nav-label">ABOUT</span></a></li>`;
             navHtml += `<li class="has-subnav"><a href="#projects" class="nav-item" data-target="projects"><span class="nav-num">02</span><span class="nav-label">PROJECTS & EXPERIENCE</span></a><ul class="project-subnav">`;
@@ -380,10 +399,7 @@
             navHtml += `<li><a href="#education" class="nav-item" data-target="education"><span class="nav-num">04</span><span class="nav-label">EDUCATION</span></a></li>`;
             mainNavList.innerHTML = navHtml;
 
-            // Header brand
-            document.getElementById("header-brand-name").textContent = portfolioData.personal.name;
-
-            // Contact Popover & Hero contact card
+            // Populate header contact popover and hero contact card
             const popover = document.getElementById("header-contact-popover");
             const heroContactCard = document.getElementById("hero-contact-card");
 
@@ -396,13 +412,14 @@
             popover.innerHTML = popoverHtml;
             heroContactCard.innerHTML = heroCardHtml;
 
-            // Hero section text
+            // Populate personal header and hero details
+            document.getElementById("header-brand-name").textContent = portfolioData.personal.name;
             document.getElementById("hero-status").textContent = portfolioData.personal.status;
             document.getElementById("hero-title").textContent = portfolioData.personal.name;
             document.getElementById("hero-subtitle").textContent = portfolioData.personal.role;
             document.getElementById("hero-tagline").textContent = portfolioData.personal.tagline;
 
-            // Projects
+            // Render dynamic projects section grid
             const projectsGrid = document.getElementById("projects-grid");
             let projectsHtml = "";
             portfolioData.projects.forEach((p) => {
@@ -412,7 +429,7 @@
                 } else {
                     projectsHtml += `<a href="${ p.link }" target="_blank" rel="noopener noreferrer" class="pe-link">${ p.linkText }</a>`;
                 }
-                projectsHtml += `</div><div class="pe-meta-grid"><div class="pe-meta-field"><strong>Role:</strong>${ p.role }</div><div class="pe-meta-field"><strong>Duration:</strong>${ p.duration }</div><div class="pe-meta-field"><strong>Domain:</strong>${ p.domain }</div></div><div class="pe-section-block"><h4 class="pe-subheading">Overview</h4><p class="pe-desc">${ p.overview }</p></div><div class="pe-section-block"><h4 class="pe-subheading">Problem</h4><p class="pe-desc">${ p.problem }</p></div><div class="pe-section-block"><h4 class="pe-subheading">Solution & Engineering Approach</h4><p class="pe-desc">${ p.solution }</p></div><div class="pe-section-block"><h4 class="pe-subheading">Key Engineering Decisions</h4><ul class="pe-bullet-list">`;
+                projectsHtml += `</div><div class="pe-meta-grid"><div class="pe-meta-field"><strong>Role:${ " " }</strong>${ p.role }</div><div class="pe-meta-field"><strong>Duration:${ " " }</strong>${ p.duration }</div><div class="pe-meta-field"><strong>Domain:${ " " }</strong>${ p.domain }</div></div><div class="pe-section-block"><h4 class="pe-subheading">Overview</h4><p class="pe-desc">${ p.overview }</p></div><div class="pe-section-block"><h4 class="pe-subheading">Problem</h4><p class="pe-desc">${ p.problem }</p></div><div class="pe-section-block"><h4 class="pe-subheading">Solution & Engineering Approach</h4><p class="pe-desc">${ p.solution }</p></div><div class="pe-section-block"><h4 class="pe-subheading">Key Engineering Decisions</h4><ul class="pe-bullet-list">`;
                 p.decisions.forEach((d) => {
                     projectsHtml += `<li>${ d }</li>`;
                 });
@@ -428,7 +445,7 @@
             });
             projectsGrid.innerHTML = projectsHtml;
 
-            // Skills
+            // Render skills grid categories and tags
             const skillsGrid = document.getElementById("skills-grid");
             let skillsHtml = "";
             portfolioData.skills.forEach((s) => {
@@ -444,7 +461,7 @@
             });
             skillsGrid.innerHTML = skillsHtml;
 
-            // Education
+            // Render education and certifications stack
             const educationStack = document.getElementById("education-stack");
             let eduHtml = "";
             portfolioData.education.forEach((e) => {
@@ -457,8 +474,10 @@
             educationStack.innerHTML = eduHtml;
         }
 
+        // Initialize portfolio rendering on load
         renderPortfolio();
 
+        // Initialize theme management from local storage
         const root = document.documentElement;
         const savedTheme = localStorage.getItem("theme") || "dark";
         root.className = savedTheme;
@@ -468,6 +487,7 @@
             localStorage.setItem("theme", newTheme);
         });
 
+        // Copy text utility function with feedback state
         function copyToClipboard(value, button) {
             navigator.clipboard
                 .writeText(value)
@@ -485,6 +505,7 @@
                 });
         }
 
+        // Handle contact popover dropdown open/close toggle
         const contactTrigger = document.getElementById("header-contact-trigger");
         const contactPopover = document.getElementById("header-contact-popover");
         contactTrigger.addEventListener("click", (e) => {
@@ -499,12 +520,14 @@
             }
         });
 
+        // Track mouse coordinates globally for canvas animations
         const mouse = { x: -1000, y: -1000 };
         window.addEventListener("pointermove", (e) => {
             mouse.x = e.clientX;
             mouse.y = e.clientY;
         });
 
+        // Setup starfield background canvas animation and resizing
         const canvas = document.getElementById("starfield-canvas");
         const ctx = canvas.getContext("2d");
         let width, height;
@@ -521,6 +544,7 @@
         window.addEventListener("resize", resize);
         resize();
 
+        // Initialize star objects array
         const stars = Array.from({ length: 120 }, () => ({
             x: Math.random() * width,
             y: Math.random() * height,
@@ -529,6 +553,7 @@
             speedY: (Math.random() - 0.5) * 0.2,
         }));
 
+        // Handle click ripple effects on canvas background
         let ripples = [];
         window.addEventListener("click", (e) => {
             if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -536,6 +561,7 @@
             ripples.push({ x: e.clientX, y: e.clientY, startTime: Date.now() });
         });
 
+        // Main animation loop for stars and interactive ripples
         function animate() {
             ctx.clearRect(0, 0, width, height);
             const isDark = root.classList.contains("dark");
@@ -571,6 +597,7 @@
         }
         animate();
 
+        // Intersection observers for section highlighting and entrance animations
         const sections = document.querySelectorAll(".content-section");
         const navItems = document.querySelectorAll(".section-nav .nav-item");
         const projectItems = document.querySelectorAll(".pe-item");
@@ -638,6 +665,36 @@
             activeProjectObserver.observe(project);
         });
 
+        // Update real-time clock display
+        function updateClock() {
+            const now = new Date();
+
+            const hours = String(now.getHours()).padStart(2, "0");
+            const minutes = String(now.getMinutes()).padStart(2, "0");
+            const seconds = String(now.getSeconds()).padStart(2, "0");
+
+            const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+            const weekday = weekdays[now.getDay()];
+            const month = months[now.getMonth()];
+            const day = now.getDate();
+            const year = now.getFullYear();
+
+            const clockEl = document.getElementById("clock-time");
+            if (clockEl) {
+                clockEl.textContent = `${ hours }:${ minutes }:${ seconds }`;
+            }
+
+            const dateEl = document.getElementById("clock-date");
+            if (dateEl) {
+                dateEl.textContent = `${ weekday }, ${ month } ${ day }, ${ year }`;
+            }
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Handle window scroll behavior for compact header and scroll-to-top button
         window.addEventListener(
             "scroll",
             () => {
@@ -650,14 +707,17 @@
             { passive: true },
         );
 
+        // Set footer copyright year and scroll-to-top trigger action
+        document.getElementById("current-year").textContent = new Date().getFullYear();
         document.getElementById("scroll-top").addEventListener("click", () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
 
-        document.querySelectorAll('.section-nav .subnav-item').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const targetId = this.getAttribute('href');
-                if (targetId && targetId.startsWith('#') && targetId.length > 1) {
+        // Handle smooth scrolling and history state updates for subnav links
+        document.querySelectorAll(".section-nav .subnav-item").forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+                const targetId = this.getAttribute("href");
+                if (targetId && targetId.startsWith("#") && targetId.length > 1) {
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         e.preventDefault();
@@ -668,13 +728,24 @@
 
                         window.scrollTo({
                             top: offsetPosition,
-                            behavior: 'smooth'
+                            behavior: "smooth",
                         });
 
                         history.pushState(null, null, targetId);
                     }
                 }
             });
+        });
+
+        // Fade out and remove loading intro screen on window load
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                const introScreen = document.getElementById("intro-screen");
+                if (introScreen) {
+                    introScreen.classList.add("active");
+                    setTimeout(() => introScreen.remove(), 850);
+                }
+            }, 800);
         });
     </script>
 </body>
