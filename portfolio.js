@@ -1,262 +1,165 @@
-const portfolioData = {
-    personal: {
-        name: "Trần Tuấn Thịnh",
-        role: "Software Engineer",
-        status: "Available for new opportunities",
-        tagline:
-            "Full-stack Software Engineer with comprehensive experience in developing CMS platforms, booking systems, e-commerce applications, and internal dashboards. Expert in building end-to-end solutions using ASP.NET Core and Next.js.",
-    },
-    contact: [
-        {
-            label: "Phone",
-            value: "0395 279 915",
-            href: "tel:+84395279915",
-            isLink: true,
-            copyText: "0395 279 915",
-            copyAria: "Copy phone number",
-        },
-        {
-            label: "Email",
-            value: "tran.tuan.thinh.0125@gmail.com",
-            href: "mailto:tran.tuan.thinh.0125@gmail.com",
-            isLink: true,
-            copyText: "tran.tuan.thinh.0125@gmail.com",
-            copyAria: "Copy email address",
-        },
-        {
-            label: "GitHub",
-            value: "github.com/trantuanthinh",
-            href: "https://github.com/trantuanthinh",
-            isLink: true,
-            external: true,
-            copyText: "https://github.com/trantuanthinh",
-            copyAria: "Copy GitHub link",
-        },
-        {
-            label: "LinkedIn",
-            value: "linkedin.com/in/thịnh-tuấn-trần-27893827a",
-            href: "https://www.linkedin.com/in/thịnh-tuấn-trần-27893827a/",
-            isLink: true,
-            external: true,
-            copyText: "https://www.linkedin.com/in/thịnh-tuấn-trần-27893827a/",
-            copyAria: "Copy LinkedIn link",
-        },
-    ],
-    projects: [
-        {
-            id: "project-setup",
-            index: "01",
-            title: "SETUP",
-            link: "https://setup.edu.vn",
-            linkText: "setup.edu.vn ↗",
-            external: true,
-            role: "Full-stack Developer",
-            duration: "Mar 2026 – Apr 2026",
-            domain: "Education Platform / Marketing Technology",
-            overview:
-                "Integrated Education & Marketing platform featuring a landing page, custom CMS, and referral system.",
-            problem:
-                "The business needed a synchronized ecosystem to promote courses, manage lists of teachers/classes, and handle commission calculations based on referrals.",
-            solution:
-                "Built a professional Landing Page integrated with a CMS for course/news management, developed a referral tracking and Ref-code validation module, and structured data for real-time timetable and class details.",
-            decisions: [
-                "Utilized PostgreSQL JSONB to decouple flexible marketing metadata from rigid relational tables.",
-                "Implemented Quartz.NET background job schedulers to automate publishing cycles and eliminate manual intervention.",
-                "Structured hierarchical media storage for structured document and asset management inside the CMS UI.",
-            ],
-            techStack: [
-                "Next.js",
-                "ASP.NET Core",
-                "EF Core",
-                "PostgreSQL JSONB",
-                "Docker",
-                "Nginx",
-                "Quartz.NET",
-                "NextUI",
-                "React Hook Form",
-                "DBeaver",
-                "WinSCP",
-            ],
-        },
-        {
-            id: "project-myrtus-villa",
-            index: "02",
-            title: "MYRTUS VILLA",
-            link: "https://myrtusvilla.com",
-            linkText: "myrtusvilla.com ↗",
-            external: true,
-            role: "Full-stack Developer",
-            duration: "Jan 2026 – Mar 2026",
-            domain: "Hospitality / Property Management",
-            overview: "Real-time internal villa booking system and property management dashboard.",
-            problem:
-                "Manual management processes caused difficulties in seasonal pricing (Lunar/Solar holidays) and lacked coordination in housekeeping operations.",
-            solution:
-                "Developed a flexible dynamic pricing engine applying holiday rates automatically, built automated housekeeping checklists by room type, and created an intuitive admin booking dashboard.",
-            decisions: [
-                "Centralized pricing calculation rules on the backend to guarantee absolute transaction consistency.",
-                "Developed custom holiday evaluation logic mapping complex Solar/Lunar calendar variances.",
-                "Integrated automated status tracking handlers for background reservation processing.",
-            ],
-            techStack: [
-                "Next.js",
-                "ASP.NET Core",
-                "EF Core",
-                "PostgreSQL",
-                "Quartz.NET",
-                "NextUI",
-                "Docker",
-                "Nginx",
-                "SSL",
-                "DBeaver",
-            ],
-        },
-        {
-            id: "project-rec",
-            index: "03",
-            title: "REC ENGLISH CENTER",
-            link: "https://anhngurec.edu.vn",
-            linkText: "anhngurec.edu.vn ↗",
-            external: true,
-            role: "Full-stack Developer",
-            duration: "Sep 2025 – Oct 2025",
-            domain: "Education / Content Management",
-            overview:
-                "Marketing landing page and customized content management system for center announcements, courses, and news publication.",
-            problem:
-                "The center required a strong communication platform with high demands for automated content updates to ensure course information and news remained timely.",
-            solution:
-                "Designed a conversion-focused Landing Page displaying courses, pricing, and teachers clearly, and integrated Quartz.NET for automated content post-scheduling.",
-            decisions: [
-                "Enforced strict sanitization rules on rich-text input to persist clean, valid HTML output.",
-                "Used WinSCP configuration patterns to manage static file permissions and directory mapping safely on the VPS server.",
-                "Separated frontend rendering from backend CMS storage concerns.",
-            ],
-            techStack: [
-                "Next.js",
-                "ASP.NET Core",
-                "EF Core",
-                "PostgreSQL",
-                "Quartz.NET",
-                "Jodit Editor",
-                "NextUI",
-                "Docker",
-                "Nginx",
-                "WinSCP",
-            ],
-        },
-        {
-            id: "project-invoice",
-            index: "04",
-            title: "INVOICE GENERATOR (SUN)",
-            linkText: "Internal Tool",
-            isStatic: true,
-            role: "Full-stack Developer",
-            duration: "Aug 2025 – Oct 2025",
-            domain: "Financial / Document Management",
-            overview:
-                "System built for generating dynamic, pixel-accurate PDF commercial quotations and invoices with strict authorization controls.",
-            problem:
-                "Businesses faced difficulties creating manual quotations, wasted time syncing product data, and lacked control over document access permissions among staff.",
-            solution:
-                "Built a bulk data processing module (CSV/Excel Import/Export), developed a template engine with auto-fill/preview support, and implemented strict Access Control List (ACL) security.",
-            decisions: [
-                "Implemented Puppeteer Sharp for precise, browser-rendered PDF outputs from HTML/CSS templates.",
-                "Combined RBAC and ACL into a hybrid authorization model to handle object-level permission checks efficiently.",
-                "Configured automated periodic data auditing utilizing background maintenance jobs.",
-            ],
-            techStack: [
-                "Next.js",
-                "ASP.NET Core",
-                "EF Core",
-                "PostgreSQL",
-                "Puppeteer Sharp",
-                "Quartz.NET",
-                "React Hook Form",
-                "DBeaver",
-            ],
-        },
-        {
-            id: "project-markethub",
-            index: "05",
-            title: "MARKETHUB",
-            link: "CSE 493 - Capstone Project 3 - Markethub Ecommerce Platform - 27062025.pdf",
-            linkText: "View Documentation ↗",
-            external: true,
-            role: "Full-stack Developer",
-            duration: "Oct 2024 – Jul 2025",
-            domain: "Group-buy E-commerce",
-            overview:
-                "Group-buy e-commerce platform incorporating real-time communication channels, geographic data processing, and user authentication workflows.",
-            problem:
-                "Agricultural products often suffered from inflated shipping costs in retail and lacked direct connections between farmers and consumers across fragmented geographical areas.",
-            solution:
-                "Developed an order-grouping algorithm based on location to optimize logistics, built a digital map module of Vietnam with real-time regional order stats, integrated Google OAuth 2.0 / SignalR for instant chat, and created intuitive store management workflows.",
-            decisions: [
-                "Adopted SignalR for reliable, stateful real-time chat and communication features.",
-                "Optimized spatial query indexing for geographical data structures in MySQL.",
-                "Integrated Google OAuth 2.0 for streamlined user onboarding and authentication security.",
-            ],
-            pdfSrc: "CSE 493 - Capstone Project 3 - Markethub Ecommerce Platform - 27062025.pdf",
-            pdfTitle: "Markethub Project Documentation",
-            techStack: ["Next.js", "ASP.NET Core", "MySQL", "SignalR", "Quartz.NET", "JWT", "Google OAuth"],
-        },
-        {
-            id: "project-cmate",
-            index: "06",
-            title: "C-MATE ADMIN DASHBOARD",
-            linkText: "Enterprise Dashboard",
-            isStatic: true,
-            role: "Frontend Developer",
-            duration: "Oct 2024 – Present",
-            domain: "Administrative Management System",
-            overview:
-                "Modular administrative dashboard designed for handling complex diocesan operational data, user configurations, and multi-level permissions.",
-            problem:
-                "Managing extensive operational datasets and dynamic multi-level permission states across numerous administrative modules led to scaling and maintenance challenges.",
-            solution:
-                "Built a comprehensive management dashboard tailored to unique diocesan workflows, featuring digital personnel records, automated grade calculation tables, CMS news management, and high-performance state handling using Angular and NgRx.",
-            decisions: [
-                "Implemented NgRx state management to centralize complex application state and data caching.",
-                "Designed modular UI components using Angular and Material UI for consistent enterprise design.",
-                "Created dynamic authorization filters to handle complex role-based UI rendering.",
-            ],
-            techStack: ["Angular", "NgRx", "Material UI", "Angular CDK", "RxJS", "RESTful API Integration"],
-        },
-    ],
-    skills: [
-        { category: "Backend", tags: "ASP.NET Core, EF Core, Quartz.NET, SignalR, Puppeteer Sharp" },
-        { category: "Frontend", tags: "Next.js, Angular, React, Tailwind CSS, NextUI, RxJS, Jodit Editor" },
-        { category: "Database", tags: "PostgreSQL, MSSQL, MySQL, Database Indexing, Query Optimization" },
-        {
-            category: "DevOps & Architecture",
-            tags: "Docker, Nginx, Linux VPS, RESTful API design, Repository Pattern",
-        },
-        {
-            category: "Soft Skills",
-            fullWidth: true,
-            softSkills: [
-                "<strong>Active Learner:</strong> Continuously exploring new technologies and adapting to evolving engineering standards.",
-                "<strong>Analytical Thinking:</strong> Breaking down complex business requirements into discrete technical modules.",
-                "<strong>Problem Solving:</strong> Identifying performance bottlenecks and driving system optimizations.",
-                "<strong>Team Collaboration:</strong> Working effectively in cross-functional teams following Agile principles.",
-                "<strong>Adaptability:</strong> Rapidly adjusting to shifting project scopes, tech stacks, and team requirements.",
-            ],
-        },
-    ],
-    education: [
-        {
-            degree: "Bachelor of Software Engineering",
-            years: "2020 – 2025",
-            institution: "Eastern International University (EIU)",
-            gpa: "3.06 / 4.0",
-            english: "IELTS 6.0",
-        },
-        {
-            degree: "Anthropic Certificate",
-            isCert: true,
-            institution: "Claude In Action ↗",
-            certLink: "https://verify.skilljar.com/c/4bx7r2i82xn7",
-        },
-    ],
-};
+// Render portfolio navigation, contact cards, and main sections from data
+function renderPortfolio() {
+    renderNavigation();
+    renderContactInfo();
+    renderPersonalDetails();
+    renderProjects();
+    renderSkills();
+    renderEducation();
+}
+
+function renderNavigation() {
+    const mainNavList = document.getElementById("main-nav-list");
+    let html = `<li><a href="#about" class="nav-item active" data-target="about"><span class="nav-num">01</span><span class="nav-label">ABOUT</span></a></li>`;
+
+    html += `<li class="has-subnav"><a href="#projects" class="nav-item" data-target="projects"><span class="nav-num">02</span><span class="nav-label">PROJECTS & EXPERIENCE</span></a><ul class="project-subnav">`;
+    portfolioData.projects.forEach((p) => {
+        html += `<li><a href="#${ p.id }" class="subnav-item" data-target="${ p.id }"><span class="nav-num">${ p.index }</span><span class="nav-label">${ p.title }</span></a></li>`;
+    });
+    html += `</ul></li>`;
+
+    html += `<li><a href="#skills" class="nav-item" data-target="skills"><span class="nav-num">03</span><span class="nav-label">SKILLS</span></a></li>`;
+    html += `<li><a href="#education" class="nav-item" data-target="education"><span class="nav-num">04</span><span class="nav-label">EDUCATION</span></a></li>`;
+
+    mainNavList.innerHTML = html;
+}
+
+function renderContactInfo() {
+    const popover = document.getElementById("header-contact-popover");
+    const heroContactCard = document.getElementById("hero-contact-card");
+
+    let popoverHtml = "";
+    let heroCardHtml = "";
+
+    portfolioData.contact.forEach((c) => {
+        const targetAttr = c.external ? 'target="_blank" rel="noopener noreferrer"' : "";
+
+        popoverHtml += `
+                    <div class="popover-item">
+                        <span class="popover-label">${ c.label }</span>
+                        <div class="popover-value-row">
+                            <a href="${ c.href }" ${ targetAttr }>${ c.value }</a>
+                            <button type="button" class="copy-btn-sm" onclick="copyToClipboard('${ c.copyText }', this)" aria-label="${ c.copyAria }">Copy</button>
+                        </div>
+                    </div>`;
+
+        heroCardHtml += `
+                    <div class="hero-contact-row">
+                        <span class="hc-label">${ c.label }</span>
+                        <div class="hc-val-group">
+                            <a href="${ c.href }" ${ targetAttr }>${ c.value }</a>
+                            <button type="button" class="copy-btn" onclick="copyToClipboard('${ c.copyText }', this)" aria-label="${ c.copyAria }">Copy</button>
+                        </div>
+                    </div>`;
+    });
+
+    popover.innerHTML = popoverHtml;
+    heroContactCard.innerHTML = heroCardHtml;
+}
+
+function renderPersonalDetails() {
+    document.getElementById("header-brand-name").textContent = portfolioData.personal.name;
+    document.getElementById("hero-status").textContent = portfolioData.personal.status;
+    document.getElementById("hero-title").textContent = portfolioData.personal.name;
+    document.getElementById("hero-subtitle").textContent = portfolioData.personal.role;
+    document.getElementById("hero-tagline").textContent = portfolioData.personal.tagline;
+}
+
+function renderProjects() {
+    const projectsGrid = document.getElementById("projects-grid");
+    let html = "";
+
+    portfolioData.projects.forEach((p) => {
+        const linkElement = p.isStatic
+            ? `<span class="static pe-link">${ p.linkText }</span>`
+            : `<a href="${ p.link }" target="_blank" rel="noopener noreferrer" class="pe-link">${ p.linkText }</a>`;
+
+        let decisionsHtml = "";
+        p.decisions.forEach((d) => {
+            decisionsHtml += `<li>${ d }</li>`;
+        });
+
+        let pdfHtml = "";
+        if (p.pdfSrc) {
+            pdfHtml = `
+                        <div class="pe-pdf-preview-wrapper">
+                            <button type="button" class="pdf-preview-btn" onclick="togglePdfPreview('${ p.id }', this)">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <span>Preview Document</span>
+                            </button>
+                            <div class="pe-pdf-container" id="pdf-container-${ p.id }" style="display: none;">
+                                <div class="pdf-header-bar">
+                                    <span class="pdf-title">${ p.pdfTitle || "Attached Document" }</span>
+                                    <button type="button" class="pdf-close-btn" onclick="togglePdfPreview('${ p.id }')" aria-label="Close document">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                    </button>
+                                </div>
+                                <iframe data-src="${ p.pdfSrc }" title="${ p.pdfTitle || "PDF Preview" }" loading="lazy"></iframe>
+                            </div>
+                        </div>`;
+        }
+
+        let techStackHtml = "";
+        p.techStack.forEach((t) => {
+            techStackHtml += `<span>${ t }</span>`;
+        });
+
+        html += `
+                    <article class="pe-item" id="${ p.id }">
+                        <div class="pe-top">
+                            <div class="pe-heading-group">
+                                <span class="pe-index">${ p.index }</span>
+                                <h3 class="pe-title">${ p.title }</h3>
+                            </div>
+                            ${ linkElement }
+                        </div>
+                        <div class="pe-meta-grid">
+                            <div class="pe-meta-field"><strong>Role: </strong>${ p.role }</div>
+                            <div class="pe-meta-field"><strong>Duration: </strong>${ p.duration }</div>
+                            <div class="pe-meta-field"><strong>Domain: </strong>${ p.domain }</div>
+                        </div>
+                        <div class="pe-section-block"><h4 class="pe-subheading">Overview</h4><p class="pe-desc">${ p.overview }</p></div>
+                        <div class="pe-section-block"><h4 class="pe-subheading">Problem</h4><p class="pe-desc">${ p.problem }</p></div>
+                        <div class="pe-section-block"><h4 class="pe-subheading">Solution & Engineering Approach</h4><p class="pe-desc">${ p.solution }</p></div>
+                        <div class="pe-section-block"><h4 class="pe-subheading">Key Engineering Decisions</h4><ul class="pe-bullet-list">${ decisionsHtml }</ul></div>
+                        ${ pdfHtml }
+                        <div class="pe-tech-stack">${ techStackHtml }</div>
+                    </article>`;
+    });
+
+    projectsGrid.innerHTML = html;
+}
+
+function renderSkills() {
+    const skillsGrid = document.getElementById("skills-grid");
+    let html = "";
+
+    portfolioData.skills.forEach((s) => {
+        if (s.fullWidth) {
+            let softSkillsHtml = "";
+            s.softSkills.forEach((ss) => {
+                softSkillsHtml += `<li>${ ss }</li>`;
+            });
+            html += `<div class="skill-category full-width"><h3>${ s.category }</h3><ul class="soft-skills-list">${ softSkillsHtml }</ul></div>`;
+        } else {
+            html += `<div class="skill-category"><h3>${ s.category }</h3><p class="skill-tags">${ s.tags }</p></div>`;
+        }
+    });
+
+    skillsGrid.innerHTML = html;
+}
+
+function renderEducation() {
+    const educationStack = document.getElementById("education-stack");
+    let html = "";
+
+    portfolioData.education.forEach((e) => {
+        if (e.isCert) {
+            html += `<div class="education-card cert-card"><div class="edu-top"><h3 class="edu-degree">${ e.degree }</h3></div><p class="edu-institution cert-title-row"><a href="${ e.certLink }" target="_blank" rel="noopener noreferrer" class="cert-link">${ e.institution }</a></p></div>`;
+        } else {
+            html += `<div class="education-card"><div class="edu-top"><h3 class="edu-degree">${ e.degree }</h3><span class="edu-years">${ e.years }</span></div><p class="edu-institution">${ e.institution }</p><div class="edu-metrics"><div class="metric-badge">GPA: <strong>${ e.gpa }</strong></div><div class="metric-badge">English: <strong>${ e.english }</strong></div></div></div>`;
+        }
+    });
+
+    educationStack.innerHTML = html;
+}
