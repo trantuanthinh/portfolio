@@ -122,96 +122,9 @@
         </svg>
     </button>
 
+    <script src="portfolioData.js"></script>
     <script src="portfolio.js"></script>
     <script>
-        // Render portfolio navigation, contact cards, and main sections from data
-        function renderPortfolio() {
-            const mainNavList = document.getElementById("main-nav-list");
-            let navHtml = `<li><a href="#about" class="nav-item active" data-target="about"><span class="nav-num">01</span><span class="nav-label">ABOUT</span></a></li>`;
-            navHtml += `<li class="has-subnav"><a href="#projects" class="nav-item" data-target="projects"><span class="nav-num">02</span><span class="nav-label">PROJECTS & EXPERIENCE</span></a><ul class="project-subnav">`;
-            portfolioData.projects.forEach((p) => {
-                navHtml += `<li><a href="#${ p.id }" class="subnav-item" data-target="${ p.id }"><span class="nav-num">${ p.index }</span><span class="nav-label">${ p.title }</span></a></li>`;
-            });
-            navHtml += `</ul></li>`;
-            navHtml += `<li><a href="#skills" class="nav-item" data-target="skills"><span class="nav-num">03</span><span class="nav-label">SKILLS</span></a></li>`;
-            navHtml += `<li><a href="#education" class="nav-item" data-target="education"><span class="nav-num">04</span><span class="nav-label">EDUCATION</span></a></li>`;
-            mainNavList.innerHTML = navHtml;
-
-            // Populate header contact popover and hero contact card
-            const popover = document.getElementById("header-contact-popover");
-            const heroContactCard = document.getElementById("hero-contact-card");
-
-            let popoverHtml = "";
-            let heroCardHtml = "";
-            portfolioData.contact.forEach((c) => {
-                popoverHtml += `<div class="popover-item"><span class="popover-label">${ c.label }</span><div class="popover-value-row"><a href="${ c.href }" ${ c.external ? 'target="_blank" rel="noopener noreferrer"' : "" }>${ c.value }</a><button type="button" class="copy-btn-sm" onclick="copyToClipboard('${ c.copyText }', this)" aria-label="${ c.copyAria }">Copy</button></div></div>`;
-                heroCardHtml += `<div class="hero-contact-row"><span class="hc-label">${ c.label }</span><div class="hc-val-group"><a href="${ c.href }" ${ c.external ? 'target="_blank" rel="noopener noreferrer"' : "" }>${ c.value }</a><button type="button" class="copy-btn" onclick="copyToClipboard('${ c.copyText }', this)" aria-label="${ c.copyAria }">Copy</button></div></div>`;
-            });
-            popover.innerHTML = popoverHtml;
-            heroContactCard.innerHTML = heroCardHtml;
-
-            // Populate personal header and hero details
-            document.getElementById("header-brand-name").textContent = portfolioData.personal.name;
-            document.getElementById("hero-status").textContent = portfolioData.personal.status;
-            document.getElementById("hero-title").textContent = portfolioData.personal.name;
-            document.getElementById("hero-subtitle").textContent = portfolioData.personal.role;
-            document.getElementById("hero-tagline").textContent = portfolioData.personal.tagline;
-
-            // Render dynamic projects section grid
-            const projectsGrid = document.getElementById("projects-grid");
-            let projectsHtml = "";
-            portfolioData.projects.forEach((p) => {
-                projectsHtml += `<article class="pe-item" id="${ p.id }"><div class="pe-top"><div class="pe-heading-group"><span class="pe-index">${ p.index }</span><h3 class="pe-title">${ p.title }</h3></div>`;
-                if (p.isStatic) {
-                    projectsHtml += `<span class="static pe-link">${ p.linkText }</span>`;
-                } else {
-                    projectsHtml += `<a href="${ p.link }" target="_blank" rel="noopener noreferrer" class="pe-link">${ p.linkText }</a>`;
-                }
-                projectsHtml += `</div><div class="pe-meta-grid"><div class="pe-meta-field"><strong>Role:${ " " }</strong>${ p.role }</div><div class="pe-meta-field"><strong>Duration:${ " " }</strong>${ p.duration }</div><div class="pe-meta-field"><strong>Domain:${ " " }</strong>${ p.domain }</div></div><div class="pe-section-block"><h4 class="pe-subheading">Overview</h4><p class="pe-desc">${ p.overview }</p></div><div class="pe-section-block"><h4 class="pe-subheading">Problem</h4><p class="pe-desc">${ p.problem }</p></div><div class="pe-section-block"><h4 class="pe-subheading">Solution & Engineering Approach</h4><p class="pe-desc">${ p.solution }</p></div><div class="pe-section-block"><h4 class="pe-subheading">Key Engineering Decisions</h4><ul class="pe-bullet-list">`;
-                p.decisions.forEach((d) => {
-                    projectsHtml += `<li>${ d }</li>`;
-                });
-                projectsHtml += `</ul></div>`;
-                if (p.pdfSrc) {
-                    projectsHtml += `<div class="pe-pdf-container"><iframe src="${ p.pdfSrc }" title="${ p.pdfTitle }" loading="lazy"></iframe></div>`;
-                }
-                projectsHtml += `<div class="pe-tech-stack">`;
-                p.techStack.forEach((t) => {
-                    projectsHtml += `<span>${ t }</span>`;
-                });
-                projectsHtml += `</div></article>`;
-            });
-            projectsGrid.innerHTML = projectsHtml;
-
-            // Render skills grid categories and tags
-            const skillsGrid = document.getElementById("skills-grid");
-            let skillsHtml = "";
-            portfolioData.skills.forEach((s) => {
-                if (s.fullWidth) {
-                    skillsHtml += `<div class="skill-category full-width"><h3>${ s.category }</h3><ul class="soft-skills-list">`;
-                    s.softSkills.forEach((ss) => {
-                        skillsHtml += `<li>${ ss }</li>`;
-                    });
-                    skillsHtml += `</ul></div>`;
-                } else {
-                    skillsHtml += `<div class="skill-category"><h3>${ s.category }</h3><p class="skill-tags">${ s.tags }</p></div>`;
-                }
-            });
-            skillsGrid.innerHTML = skillsHtml;
-
-            // Render education and certifications stack
-            const educationStack = document.getElementById("education-stack");
-            let eduHtml = "";
-            portfolioData.education.forEach((e) => {
-                if (e.isCert) {
-                    eduHtml += `<div class="education-card cert-card"><div class="edu-top"><h3 class="edu-degree">${ e.degree }</h3></div><p class="edu-institution cert-title-row"><a href="${ e.certLink }" target="_blank" rel="noopener noreferrer" class="cert-link">${ e.institution }</a></p></div>`;
-                } else {
-                    eduHtml += `<div class="education-card"><div class="edu-top"><h3 class="edu-degree">${ e.degree }</h3><span class="edu-years">${ e.years }</span></div><p class="edu-institution">${ e.institution }</p><div class="edu-metrics"><div class="metric-badge">GPA: <strong>${ e.gpa }</strong></div><div class="metric-badge">English: <strong>${ e.english }</strong></div></div></div>`;
-                }
-            });
-            educationStack.innerHTML = eduHtml;
-        }
-
         // Initialize portfolio rendering on load
         renderPortfolio();
 
@@ -219,11 +132,32 @@
         const root = document.documentElement;
         const savedTheme = localStorage.getItem("theme") || "dark";
         root.className = savedTheme;
+
         document.getElementById("theme-toggle").addEventListener("click", () => {
             const newTheme = root.classList.contains("dark") ? "light" : "dark";
             root.className = newTheme;
             localStorage.setItem("theme", newTheme);
         });
+
+        // Toggle Pdf Preview utility
+        function togglePdfPreview(projectId, btnElement) {
+            const container = document.getElementById(`pdf-container-${ projectId }`);
+            const iframe = container.querySelector("iframe");
+            const isHidden = container.style.display === "none";
+
+            if (isHidden) {
+                if (!iframe.getAttribute("src") && iframe.getAttribute("data-src")) {
+                    iframe.setAttribute("src", iframe.getAttribute("data-src"));
+                }
+                container.style.display = "block";
+                if (btnElement) btnElement.style.display = "none";
+            } else {
+                container.style.display = "none";
+                const parentWrapper = container.closest(".pe-pdf-preview-wrapper");
+                const previewBtn = parentWrapper.querySelector(".pdf-preview-btn");
+                if (previewBtn) previewBtn.style.display = "inline-flex";
+            }
+        }
 
         // Copy text utility function with feedback state
         function copyToClipboard(value, button) {
@@ -246,11 +180,13 @@
         // Handle contact popover dropdown open/close toggle
         const contactTrigger = document.getElementById("header-contact-trigger");
         const contactPopover = document.getElementById("header-contact-popover");
+
         contactTrigger.addEventListener("click", (e) => {
             e.stopPropagation();
             const isOpen = contactPopover.classList.toggle("show");
             contactTrigger.setAttribute("aria-expanded", isOpen);
         });
+
         window.addEventListener("click", (e) => {
             if (!e.target.closest(".header-contact-dropdown")) {
                 contactPopover.classList.remove("show");
@@ -269,6 +205,7 @@
         const canvas = document.getElementById("starfield-canvas");
         const ctx = canvas.getContext("2d");
         let width, height;
+
         function resize() {
             width = window.innerWidth;
             height = window.innerHeight;
@@ -279,6 +216,7 @@
             canvas.style.width = `${ width }px`;
             canvas.style.height = `${ height }px`;
         }
+
         window.addEventListener("resize", resize);
         resize();
 
@@ -406,7 +344,6 @@
         // Update real-time clock display
         function updateClock() {
             const now = new Date();
-
             const hours = String(now.getHours()).padStart(2, "0");
             const minutes = String(now.getMinutes()).padStart(2, "0");
             const seconds = String(now.getSeconds()).padStart(2, "0");
@@ -420,14 +357,10 @@
             const year = now.getFullYear();
 
             const clockEl = document.getElementById("clock-time");
-            if (clockEl) {
-                clockEl.textContent = `${ hours }:${ minutes }:${ seconds }`;
-            }
+            if (clockEl) clockEl.textContent = `${ hours }:${ minutes }:${ seconds }`;
 
             const dateEl = document.getElementById("clock-date");
-            if (dateEl) {
-                dateEl.textContent = `${ weekday }, ${ month } ${ day }, ${ year }`;
-            }
+            if (dateEl) dateEl.textContent = `${ weekday }, ${ month } ${ day }, ${ year }`;
         }
         setInterval(updateClock, 1000);
         updateClock();
@@ -459,16 +392,11 @@
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         e.preventDefault();
-
                         const headerOffset = 90;
                         const elementPosition = targetElement.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: "smooth",
-                        });
-
+                        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
                         history.pushState(null, null, targetId);
                     }
                 }
