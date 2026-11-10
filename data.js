@@ -9,10 +9,10 @@ const portfolioData = Object.freeze({
     contact: Object.freeze([
         {
             label: "Phone",
-            value: "0395 279 915",
+            value: "+84 395 279 915",
             href: "tel:+84395279915",
             isLink: true,
-            copyText: "0395 279 915",
+            copyText: "+84 395 279 915",
             copyAria: "Copy phone number",
         },
         {
@@ -52,7 +52,7 @@ const portfolioData = Object.freeze({
             linkText: "setup.edu.vn ↗",
             external: true,
             role: "Full-stack Developer",
-            duration: "Mar 2026 – Apr 2026",
+            duration: "Mar 2026 - Apr 2026",
             domain: "Education Platform / Marketing Technology",
             overview: "Integrated Education & Marketing platform featuring a landing page, custom CMS, and referral system.",
             problem:
@@ -87,7 +87,7 @@ const portfolioData = Object.freeze({
             linkText: "myrtusvilla.com ↗",
             external: true,
             role: "Full-stack Developer",
-            duration: "Jan 2026 – Mar 2026",
+            duration: "Jan 2026 - Mar 2026",
             domain: "Hospitality / Property Management",
             overview: "Real-time internal villa booking system and property management dashboard.",
             problem:
@@ -121,7 +121,7 @@ const portfolioData = Object.freeze({
             linkText: "anhngurec.edu.vn ↗",
             external: true,
             role: "Full-stack Developer",
-            duration: "Sep 2025 – Oct 2025",
+            duration: "Sep 2025 - Oct 2025",
             domain: "Education / Content Management",
             overview:
                 "Marketing landing page and customized content management system for center announcements, courses, and news publication.",
@@ -155,7 +155,7 @@ const portfolioData = Object.freeze({
             linkText: "Internal Tool",
             isStatic: true,
             role: "Full-stack Developer",
-            duration: "Aug 2025 – Oct 2025",
+            duration: "Aug 2025 - Oct 2025",
             domain: "Financial / Document Management",
             overview:
                 "System built for generating dynamic, pixel-accurate PDF commercial quotations and invoices with strict authorization controls.",
@@ -188,7 +188,7 @@ const portfolioData = Object.freeze({
             linkText: "View Documentation ↗",
             external: true,
             role: "Full-stack Developer",
-            duration: "Oct 2024 – Jul 2025",
+            duration: "Oct 2024 - Jul 2025",
             domain: "Group-buy E-commerce",
             overview:
                 "Group-buy e-commerce platform incorporating real-time communication channels, geographic data processing, and user authentication workflows.",
@@ -213,7 +213,7 @@ const portfolioData = Object.freeze({
             linkText: "Enterprise Dashboard",
             isStatic: true,
             role: "Frontend Developer",
-            duration: "Oct 2024 – Present",
+            duration: "Oct 2024 - Present",
             domain: "Administrative Management System",
             overview:
                 "Modular administrative dashboard designed for handling complex diocesan operational data, user configurations, and multi-level permissions.",
@@ -249,7 +249,7 @@ const portfolioData = Object.freeze({
     education: Object.freeze([
         {
             degree: "Bachelor of Software Engineering",
-            years: "2020 – 2025",
+            years: "2020 - 2025",
             institution: "Eastern International University (EIU)",
             gpa: "3.06 / 4.0",
             english: "IELTS 6.0",
