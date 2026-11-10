@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Trần Tuấn Thịnh — Software Engineer</title>
+    <meta name="description"
+        content="Portfolio of Trần Tuấn Thịnh, Full-stack Software Engineer specializing in ASP.NET Core, Next.js, and Angular." />
+    <meta name="author" content="Trần Tuấn Thịnh" />
+    <meta name="theme-color" content="#050807" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f8faf7" media="(prefers-color-scheme: light)" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Trần Tuấn Thịnh — Software Engineer" />
+    <meta property="og:description"
+        content="Full-stack Software Engineer — ASP.NET Core, Next.js, Angular. Portfolio & projects." />
+    <meta property="og:url" content="https://trantuanthinh.dev/" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Trần Tuấn Thịnh — Software Engineer" />
+    <meta name="twitter:description" content="Full-stack Software Engineer — ASP.NET Core, Next.js, Angular." />
+
+    <link rel="canonical" href="https://trantuanthinh.dev/" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@300;400;500;600;700&display=swap" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem("theme");
+                var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+                document.documentElement.className = saved || (prefersDark ? "dark" : "light");
+            } catch (e) {
+                document.documentElement.className = "dark";
+            }
+        })();
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Trần Tuấn Thịnh",
+        "jobTitle": "Software Engineer",
+        "url": "https://trantuanthinh.dev/",
+        "sameAs": [
+            "https://github.com/trantuanthinh",
+            "https://www.linkedin.com/in/trantuanthinh/"
+        ],
+        "knowsAbout": [
+            "ASP.NET Core", "Next.js", "Angular", "PostgreSQL",
+            "Docker", "Nginx", "Quartz.NET", "SignalR"
+        ],
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "Eastern International University (EIU)"
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <div id="a11y-live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+    <div id="intro-screen" class="intro-screen" aria-hidden="true">
+        <div class="shutter-left"></div>
+        <div class="shutter-right"></div>
+        <div class="intro-center">
+            <div class="intro-core">
+                <div class="cyber-ring"></div>
+                <div class="cyber-ring-inner"></div>
+            </div>
+            <div class="intro-text-group">
+                <span class="intro-name">trantuanthinh</span>
+                <span class="intro-role">Software Engineer</span>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="starfield-canvas"></canvas>
+
+    <nav class="section-nav" id="section-nav" aria-label="Section Navigation">
+        <ul id="main-nav-list"></ul>
+    </nav>
+
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation">
+        <ul id="mobile-nav-list"></ul>
+    </nav>
+
+    <header class="compact-header" id="compact-header">
+        <div class="compact-brand">
+            <span class="brand-initials">TT</span><span class="brand-name" id="header-brand-name"></span>
+        </div>
+        <div class="compact-nav-right">
+            <div class="compact-clock-badge" id="compact-clock">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent)">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span id="clock-date">—</span>
+                <span>•</span>
+                <span id="clock-time">--:--:--</span>
+            </div>
+            <div class="header-contact-dropdown">
+                <button type="button" class="header-contact-trigger" id="header-contact-trigger" aria-expanded="false"
+                    aria-label="Toggle contact info">
+                    <span>Contact Info</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="header-contact-popover" id="header-contact-popover"></div>
+            </div>
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-container" id="main" tabindex="-1">
+        <section id="about" class="content-section header-info-section" data-num="01" data-title="ABOUT">
+            <div class="hero-content">
+                <div class="hero-badge"><span class="status-dot"></span><span id="hero-status"></span></div>
+                <h1 class="hero-title" id="hero-title"></h1>
+                <p class="hero-subtitle" id="hero-subtitle"></p>
+                <p class="hero-tagline" id="hero-tagline"></p>
+
+                <div class="hero-stats" id="hero-stats"></div>
+
+                <div class="hero-actions">
+                    <a href="./trantuanthinh_SE_EN.pdf" target="_blank" rel="noopener noreferrer" class="hero-cv-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        <span>View CV</span>
+                    </a>
+                    <button type="button" id="download-vcard-btn" class="hero-cv-btn hero-secondary-btn"
+                        aria-label="Download contact information as vCard">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                            <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                            <polyline points="7 3 7 8 15 8"></polyline>
+                        </svg>
+                        <span>Save Contact</span>
+                    </button>
+                    <button type="button" id="copy-markdown-btn" class="hero-cv-btn hero-secondary-btn"
+                        aria-label="Copy portfolio summary as Markdown">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        <span>Copy as Markdown</span>
+                    </button>
+                </div>
+
+                <div class="hero-contact-card" id="hero-contact-card"></div>
+            </div>
+        </section>
+
+        <section id="projects" class="content-section section" data-num="02" data-title="PROJECTS & EXPERIENCE">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-heading">Projects & Experience</h2>
+            </div>
+            <div class="project-filters" id="project-filters" role="tablist" aria-label="Filter projects by category">
+            </div>
+            <div class="projects-grid" id="projects-grid"></div>
+        </section>
+
+        <section id="skills" class="content-section section" data-num="03" data-title="SKILLS">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-heading">Skills</h2>
+            </div>
+            <div class="skills-grid" id="skills-grid"></div>
+        </section>
+
+        <section id="education" class="content-section section" data-num="04" data-title="EDUCATION">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-heading">Education</h2>
+            </div>
+            <div class="education-stack" id="education-stack"></div>
+        </section>
+
+        <footer class="site-footer">
+            <p>© <span id="current-year"></span> Trần Tuấn Thịnh. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <button id="scroll-top" class="scroll-to-top" aria-label="Scroll to top">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <script src="data.js"></script>
+    <script src="portfolio.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
